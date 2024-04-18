@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Amazing Images</h2>
+  <div>
+    <ul id="images">
+      <li><img width="200px" id="japan" src="https://images.unsplash.com/photo-1713193905429-7b54b3e241f0?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""></li>
+      <li><img width="200px" id="spain" src="https://images.unsplash.com/photo-1684059279043-729847632a04?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""></li>
+      <li><img width="200px" id="india" src="https://images.unsplash.com/photo-1507614498949-edbabc86a14f?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""></li>
+      <li><img width="200px" id="USA" src="https://images.unsplash.com/photo-1713151516865-9d9d3130de35?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""></li>
+      <li><img width="200px" id="iceland" src="https://images.unsplash.com/photo-1654011003958-552daa153843?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""></li>
+      <li><a href="https://google.com" target="_blank" id="google">Google</a></li>
+    </ul>
+  </div>
+
+</body>
+<script>
+    // document.getElementById('japan').onclick = function(){
+    //   alert("owl clicked");
+    // } not a good approach to write
+    
+    // document.getElementById('japan').addEventListener('click',function(){}, false) false is the third element basic things default value is false so we wont write false (event propogation is event bubbling) if you want capturing you can use 'true' indted of false when you use bubbling (inside to outside) you can write false
+
+    // attachEvents()
+    //J=jQuery - on
+    
+    //type, timestamp, preventDefault, 
+    //target, toElement, srcElement, currentTarget,
+    //clientX, clientY, screenX, ScreenY
+    //altkey, ctrlkey, shiftkey, keycode
+
+    // document.getElementById('images').addEventListener('click',function(e){
+    //   console.log("clicked inside the ul");
+    // }, false);
+
+    // document.getElementById('japan').addEventListener('click',function(e){
+    //   console.log("japan clicked");
+    //   e.stopPropagation() //it will stop the bubbling
+    // }, false);
+
+    // document.getElementById('google').addEventListener('click', function(e){
+    //   e.preventDefault();
+    //   e.stopPropagation();
+    //   console.log('google clicked');
+    // }, false);
+
+    //click on the image while click the image will remove
+    let images = document.querySelector('#images');
+
+    images.addEventListener('click', function(e){
+      console.log(e.target.tagName);
+      if (e.target.tagName === 'IMG') {
+        console.log(e.target.id);
+        let removeIt = e.target.parentNode;
+        removeIt.remove(); 
+      }
+    }, false)
+    
+    // removeIt.parentNode.removeChild(removeIt);
+</script>
+</html>
